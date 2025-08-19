@@ -1,0 +1,32 @@
+Work out what you want to do
+    - Function signature
+    - Identify working scenarios
+
+Write tests that would pass
+Check tests fails (RED)
+
+Write code to make the tests pass (GREEN)
+Go back to the start, make your code better
+
+-- is_valid_square --
+normal, extreme, erroneous
+
+S1: Valid input - returns True
+[1, 1, 1, 1]
+[4, 4, 4, 4]
+
+S2: Valid input - returns False
+[1, 2, 3, 4]
+[1, 1, 1]
+[0, 0, 0, 0] (edge case)
+
+-- is_valid_triangle --
+
+Valid input - returns True
+[30, 30, 120]
+[60, 60, 60]
+
+Valid input - returns False
+[1, 1, 1]
+[180]
+[0, 0, 0]
