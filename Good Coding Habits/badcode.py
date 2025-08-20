@@ -1,37 +1,44 @@
 import random
 
 
-def check(str, guess):
-    result = ['_' for _ in range(len(str))]
-    for i, x in enumerate(guess):
-        if x == str[i]:
-            result[i] = x
-        elif letter in str:
-            result[i] = '?'
+def check(word: str, guess: str) -> str:
+    result = ['_' for char in range(len(word))]
+    for idx, char in enumerate(guess):
+        if char == word[idx]:
+            result[idx] = char
+        elif char in word:
+            result[idx] = '?'
     return result
 
 
-def gen_wor(wlist):
-    return random.choice(wlist)
+def generate_random_word(word_list: list) -> str:
+    return random.choice(word_list)
 
 
-def func():
-    i = gen_wor()
-    go = 5
-    while go > 0:
-        input1 = input("Enter your guess: ")
-        if len(i) != 5:
+def start_game():
+    word = generate_random_word(random_word_list)
+    attempts = 5
+
+    while attempts > 0:
+        guess = input("Enter your guess: ")
+
+        if len(word) != 5:
             print("Please enter a 5-letter word.")
             continue
-        result = check(i, input1)
+
+        result = check(word, guess)
         print(' '.join(result))
-        if input1 == i:
+
+        if guess == word:
             print("Congratulations! You've guessed the word.")
             return
-        go -= 1
-    print(f"Sorry, you didn't guess the word. The word was {i}.")
+
+        attempts -= 1
+
+    print(f"Sorry, you didn't guess the word. The word was {word}.")
 
 
-list2 = ["apple", "place", "grape", "chair", "spear", "green",
-         "plant", "house", "water", "money", "tiger", "panda"]
-func(list2)
+random_word_list = ["apple", "place", "grape", "chair", "spear", "green",
+                    "plant", "house", "water", "money", "tiger", "panda"]
+
+start_game()
